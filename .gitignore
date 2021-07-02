@@ -1,0 +1,21 @@
+/*
+
+# Top-level files
+!.gitignore
+!chrome-flags.conf
+!latexmkrc
+!pavucontrol.ini
+!redshift.conf
+!starship.toml
+!tmux.conf
+
+# Directories
+!bash
+!fcitx
+!git
+!i3
+!mpv
+!mutt
+!sxiv
+!terminator
+!vim_templates

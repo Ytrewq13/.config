@@ -1,0 +1,26 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{datetime}
+
+\usepackage{graphicx}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%\usepackage{csquotes}
+%\usepackage[english]{babel}
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{~/Documents/books/books.bib}
+
+\newdateformat{mydate}{\dayofweekname{\THEDAY}{\THEMONTH}{\THEYEAR}, \ordinal{DAY} \monthname[\THEMONTH], \THEYEAR}
+
+\title{<FILEROOT>}
+\author{Sam Whitehead}
+\date{\mydate\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\end{document}
