@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/sam/.agda/lib'
+let g:netrw_dirhist_3='/usr/include/glib-2.0/glib'
+let g:netrw_dirhist_2='/home/sam/.vim/bundle/agda-vim/ftplugin'
+let g:netrw_dirhist_1='/home/sam/.vim/bundle/agda-vim/ftdetect'
+let g:netrw_dirhist_0='/home/sam/Documents/programming/webp-multiframe/sxiv/.git'
+let g:netrw_dirhist_9='/home/sam/Documents/programming/opencl/opencl_practice/src'
+let g:netrw_dirhist_8='/home/sam/Documents/programming/opencl/opencl_test_helloworld/src'
+let g:netrw_dirhist_7='/home/sam/Documents/programming/linux/.git'
+let g:netrw_dirhist_6='/home/sam/Documents/programming/uni-stuff/3/compilers/14'
+let g:netrw_dirhist_5='/home/sam/Downloads/sxiv'
