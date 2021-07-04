@@ -4,6 +4,7 @@
 !.gitignore
 !chrome-flags.conf
 !latexmkrc
+!picom.conf
 !profile
 !redshift.conf
 !starship.toml
