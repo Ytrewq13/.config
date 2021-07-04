@@ -4,7 +4,6 @@
 !.gitignore
 !chrome-flags.conf
 !latexmkrc
-!pavucontrol.ini
 !profile
 !redshift.conf
 !starship.toml
