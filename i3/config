@@ -223,7 +223,8 @@ for_window [title="FTerm"] floating enable
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Ctrl+Return exec terminator --title "FTerm" # Floating terminal
 
-bindsym $mod+Shift+x exec chromium
+#bindsym $mod+Shift+x exec chromium
+bindsym $mod+Shift+x exec google-chrome-stable
 
 bindsym $mod+Shift+a exec --no-startup-id "sxiv $XDG_DATA_HOME/phonetic.png"
 bindsym $mod+Shift+s exec --no-startup-id steam

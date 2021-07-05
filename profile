@@ -18,4 +18,5 @@ export PATH=$PATH:$HOME/.scripts
 export EDITOR="vim -i $HOME/.cache/.viminfo"
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export TERMINAL="terminator"
-export BROWSER="chromium"
+#export BROWSER="chromium"
+export BROWSER="google-chrome-stable"
