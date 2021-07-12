@@ -23,7 +23,7 @@ group misc {
     button_next = 1
 
         external_script {
-            script_path = "~/.local/bin/corona"
+            script_path = "~/.scripts/corona"
         }
 
     uptime {}
