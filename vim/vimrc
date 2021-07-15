@@ -260,3 +260,4 @@ autocmd BufEnter * silent! lcd %:p:h
 " Common Abbreviations
 ab hte the
 ab teh the
+ab Teh The
