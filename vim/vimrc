@@ -22,11 +22,14 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ap/vim-css-color'
+" TODO: do I still use Vimux?
 Plugin 'benmills/vimux'
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-dispatch'
+
 Plugin 'dense-analysis/ale'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'StanAngeloff/php.vim'
@@ -34,11 +37,14 @@ Plugin 'csexton/trailertrash.vim'
 
 Plugin 'ARM9/arm-syntax-vim'
 
+Plugin 'junegunn/fzf.vim'
+Plugin 'airblade/vim-rooter'
+Plugin 'airblade/vim-gitgutter'
+
 " Document formatting packages
 Plugin 'lervag/vimtex'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-"Plugin 'vim-pandoc/vim-rmarkdown'
 Plugin 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plugin 'chrisbra/NrrwRgn'
 
@@ -48,10 +54,8 @@ Plugin 'honza/vim-snippets'
 call vundle#end()
 
 
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
-call plug#end()
+"call plug#begin('~/.vim/plugged')
+"call plug#end()
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
