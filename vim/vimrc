@@ -168,8 +168,8 @@ set showcmd
 " Setting filetypes for problematic file extensions
 autocmd BufRead,BufNewFile *.ms setlocal filetype=groff
 autocmd BufRead,BufNewFile *.h  setlocal filetype=c
-"autocmd FileType c setlocal formatprg=astyle\ -s4pJxC79A3k1W3c
-" TODO: implement a formatprg using uncrustify / clang-format and compare them
+
+" Formatting options for C source code
 autocmd FileType c setlocal formatoptions=croqanlj
 autocmd FileType c let &formatprg='clang-format --style=file'
 
@@ -179,16 +179,14 @@ autocmd FileType arduino setlocal smartindent
 
 " DOCUMENT PREPARATION
 """"""""""""""""""""""
+" TODO: use a makeprg in autocmd/filetype and then bind <F2> to :make (or the
+" async version from that tpope(?) plugin) for a variety of filetypes.
 autocmd FileType groff nnoremap <buffer> <F2> :w<CR>:call job_start(['/bin/sh', '-c', "groff -R -t -p -e -k -ms -Tps <C-R>% \| ps2pdf - ".expand('%:r').".pdf"])<CR><CR>
 autocmd FileType groff inoremap <buffer> <F2> <Esc><F2>
 
 autocmd FileType markdown nnoremap <buffer> <F2> :w<CR>:call job_start(['/bin/sh', '-c', "pandoc --pdf-engine=xelatex -tpdf <C-R>% > .".expand('%:r').".pdf && mv .".expand('%:r').".pdf ".expand('%:r').".pdf"])<CR>
 autocmd FileType markdown inoremap <buffer> <F2> <Esc><F2>
 
-" vim-rmarkdown is blocking for the duration of the knitting (and seems to bug
-" out if I press any keys or if the window loses focus). Until I figure this
-" out I will use makeprg and vim-dispatch
-"autocmd FileType rmd nnoremap <buffer> <F2> :w<CR>:RMarkdown pdf<CR>
 " Using Nvim-R for compiling rmarkdown documents
 autocmd FileType rmd nnoremap <buffer> <F2> :call RMakeRmd("default")<CR>
 autocmd FileType rmd inoremap <buffer> <F2> <Esc><F2>
@@ -236,8 +234,8 @@ let g:ale_linters = {
 \   'c': ['gcc', 'clangtidy'],
 \   'haskell': ['cabal_ghc', 'ghc-mod', 'hdevtools', 'hie', 'hlint', 'stack_build', 'stack_ghc'],
 \}
-let g:ale_asm_gcc_executable = 'aarch64-none-elf-gcc'
-let g:ale_c_cc_executable = 'aarch64-none-elf-gcc'
+"let g:ale_asm_gcc_executable = 'aarch64-none-elf-gcc'
+"let g:ale_c_cc_executable = 'aarch64-none-elf-gcc'
 
 autocmd BufEnter *.asm silent! setlocal ft=nasm
 autocmd BufNewFile,BufRead *.s,*.S silent! setlocal filetype=arm " arm = armv6/7
