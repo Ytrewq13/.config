@@ -96,6 +96,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+set nojoinspaces " Only one space after a period to break sentences
+
 set backspace=2
 
 " Completion with C-p:
