@@ -38,8 +38,10 @@ Plugin 'csexton/trailertrash.vim'
 Plugin 'ARM9/arm-syntax-vim'
 
 Plugin 'junegunn/fzf.vim'
+
 Plugin 'airblade/vim-rooter'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-helptab'
 
 " Document formatting packages
 Plugin 'lervag/vimtex'
