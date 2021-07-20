@@ -18,6 +18,7 @@
 !i3status
 !mpv
 !mutt
+mutt/.muttrc*
 !sxiv
 !terminator
 vim/.netrwhist
