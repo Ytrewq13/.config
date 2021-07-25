@@ -53,6 +53,8 @@ augroup CommentSupport
     autocmd FileType             c                                 let b:CT_DELIMITED_COMMENT = { 'start': '/*', 'end': '*/' }
     autocmd FileType             arduino                           let b:CT_EOL_COMMENT       = '//'
     autocmd FileType             arduino                           let b:CT_DELIMITED_COMMENT = { 'start': '/*', 'end': '*/' }
+    autocmd FileType             html                              let b:CT_DELIMITED_COMMENT = { 'start': '<!-- ', 'end': ' -->' }
+    autocmd FileType             css                               let b:CT_DELIMITED_COMMENT = { 'start': '/*', 'end': '*/' }
     autocmd BufNewFile,BufRead   *.S,*.s                           let b:CT_EOL_COMMENT = get(b:, 'CT_EOL_COMMENT', '// ')
     autocmd BufNewFile,BufRead   *.S,*.s                           let b:CT_DELIMITED_COMMENT = { 'start': '/*', 'end': '*/' }
     autocmd BufNewFile,BufRead   *.vim,.vimrc                      let b:CT_EOL_COMMENT = get(b:, 'CT_EOL_COMMENT', '"')
