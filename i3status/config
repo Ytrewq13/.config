@@ -56,25 +56,25 @@ group cpu {
     min_length = 4
         cpu_temperature 0 {
             format = "%degrees°C"
-#            path = "/sys/class/hwmon/hwmon4/temp1_input"
-#            path = "/sys/class/hwmon/hwmon2/temp2_input"
-            path = env(TEMPERATURE_PATH_1)
+#            path = "/sys/class/hwmon/hwmon4/temp1_input"  # laptop
+#            path = "/sys/class/hwmon/hwmon2/temp2_input"  # PC
+            path = shell(~/.config/i3status/environment-vars 1)
             # LABEL SHOULD BE 'CPUTIN'
             # cat /sys/class/hwmon/hwmon?/temp?_label
         }
         cpu_temperature 1 {
             format = "%degrees°C"
-#            path = "/sys/class/hwmon/hwmon4/temp2_input"
-#            path = "/sys/class/hwmon/hwmon2/temp1_input"
-            path = env(TEMPERATURE_PATH_2)
+#            path = "/sys/class/hwmon/hwmon4/temp2_input"  # laptop
+#            path = "/sys/class/hwmon/hwmon2/temp1_input"  # PC
+            path = shell(~/.config/i3status/environment-vars 2)
             # LABEL SHOULD BE 'CPUTIN'
             # cat /sys/class/hwmon/hwmon?/temp?_label
         }
         cpu_temperature 2 {
             format = "%degrees°C"
-#            path = "/sys/class/hwmon/hwmon4/temp3_input"
-#            path = "/sys/class/hwmon/hwmon0/temp2_input"
-            path = env(TEMPERATURE_PATH_2)
+#            path = "/sys/class/hwmon/hwmon4/temp3_input"  # laptop
+#            path = "/sys/class/hwmon/hwmon0/temp2_input"  # PC
+            path = shell(~/.config/i3status/environment-vars 3)
             # LABEL SHOULD BE 'CPUTIN'
             # cat /sys/class/hwmon/hwmon?/temp?_label
         }

@@ -14,13 +14,11 @@ elif [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-export PATH=$PATH:$HOME/.scripts
+export PATH="$PATH:$HOME/.scripts"
+
 export EDITOR="vim -i $HOME/.cache/.viminfo"
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export TERMINAL="terminator"
 #export BROWSER="chromium"
 export BROWSER="google-chrome-stable"
 #export BROWSER="firefox"
-
-
-[ -f "$XDG_CONFIG_HOME/i3status/environment-vars" ] && . "$XDG_CONFIG_HOME/i3status/environment-vars"
