@@ -21,3 +21,6 @@ export TERMINAL="terminator"
 #export BROWSER="chromium"
 export BROWSER="google-chrome-stable"
 #export BROWSER="firefox"
+
+
+[ -f "$XDG_CONFIG_HOME/i3status/environment-vars" ] && . "$XDG_CONFIG_HOME/i3status/environment-vars"

@@ -16,6 +16,7 @@
 !git
 !i3
 !i3status
+i3status/environment-vars
 !mpv
 !mutt
 mutt/.muttrc*
