@@ -50,14 +50,13 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plugin 'chrisbra/NrrwRgn'
 
-" UltiSnips - used to implement snippets
-Plugin 'SirVer/ultisnips'
+" SnipMate - used to implement snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 call vundle#end()
 
-
-"call plug#begin('~/.vim/plugged')
-"call plug#end()
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
@@ -65,16 +64,15 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 nnoremap <C-_> :BLines<CR>
 
 
-" UltiSnips configuration
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
-let g:UltiSnipsExpandTrigger="<C-s>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-inoremap <F5> <Esc>:Snippets<CR>
-" Snippet name information (to fill in on certain snippets which use them)
-let g:snips_author="Sam Whitehead"
-let g:snips_email="sam.everythingcomputers@gmail.com"
-let g:snips_github="https://github.com/Ytrewq13"
+" SnipMate configuration
+let g:snipMate = { 'snippet_version' : 1 }
+imap <C-S> <Plug>snipMateNextOrTrigger
+smap <C-S> <Plug>snipMateNextOrTrigger
+imap <F5> <Plug>snipMateShow
+"
+"let g:snips_author="Sam Whitehead"
+"let g:snips_email="sam.everythingcomputers@gmail.com"
+"let g:snips_github="https://github.com/Ytrewq13"
 
 
 let g:rooter_silent_chdir = 1
