@@ -170,7 +170,7 @@ autocmd BufRead,BufNewFile *.ms setlocal filetype=groff
 autocmd BufRead,BufNewFile *.h  setlocal filetype=c
 
 " Formatting options for C source code
-autocmd FileType c setlocal formatoptions=croqanlj
+autocmd FileType c setlocal formatoptions=croqnlj
 autocmd FileType c let &formatprg='clang-format --style=file'
 
 
