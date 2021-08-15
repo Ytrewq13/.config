@@ -99,7 +99,7 @@ group gpu {
 group power {
     battery 0 {
         format = "%status %percentage %remaining"
-        format_down = "No battery"
+        format_down = ""
         status_chr = "⚡"
         status_bat = "🔋"
         status_unk = "?"
