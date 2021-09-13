@@ -1,0 +1,77 @@
+[submodule "vim/bundle/editorconfig-vim"]
+	path = vim/bundle/editorconfig-vim
+	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule "vim/bundle/vim-css-color"]
+	path = vim/bundle/vim-css-color
+	url = git@github.com:ap/vim-css-color
+[submodule "vim/bundle/Vundle.vim"]
+	path = vim/bundle/Vundle.vim
+	url = git@github.com:VundleVim/Vundle.vim
+[submodule "vim/bundle/vimux"]
+	path = vim/bundle/vimux
+	url = git@github.com:benmills/vimux
+[submodule "vim/bundle/vim-fugitive"]
+	path = vim/bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
+	url = git@github.com:tpope/vim-surround
+[submodule "vim/bundle/vim-repeat"]
+	path = vim/bundle/vim-repeat
+	url = git@github.com:tpope/vim-repeat
+[submodule "vim/bundle/vim-dispatch"]
+	path = vim/bundle/vim-dispatch
+	url = git@github.com:tpope/vim-dispatch
+[submodule "vim/bundle/ale"]
+	path = vim/bundle/ale
+	url = git@github.com:dense-analysis/ale
+[submodule "vim/bundle/vim-windowswap"]
+	path = vim/bundle/vim-windowswap
+	url = git@github.com:webQ3/vim-windowswap
+[submodule "git@github.com:wesQ3/vim-windowswap"]
+	url = vim-windowswap/
+[submodule "vim/bundle/php.vim"]
+	path = vim/bundle/php.vim
+	url = git@github.com:StanAngeloff/php.vim
+[submodule "vim/bundle/trailertrash.vim"]
+	path = vim/bundle/trailertrash.vim
+	url = git@github.com:csexton/trailertrash.vim
+[submodule "vim/bundle/arm-syntax-vim"]
+	path = vim/bundle/arm-syntax-vim
+	url = git@github.com:ARM9/arm-syntax-vim
+[submodule "vim/bundle/fzf.vim"]
+	path = vim/bundle/fzf.vim
+	url = git@github.com:junegunn/fzf.vim
+[submodule "vim/bundle/vim-rooter"]
+	path = vim/bundle/vim-rooter
+	url = git@github.com:airblade/vim-rooter
+[submodule "vim/bundle/vim-gitgutter"]
+	path = vim/bundle/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter
+[submodule "vim/bundle/vim-helptab"]
+	path = vim/bundle/vim-helptab
+	url = git@github.com:airblade/vim-helptab
+[submodule "vim/bundle/vimtex"]
+	path = vim/bundle/vimtex
+	url = git@github.com:lervag/vimtex
+[submodule "vim/bundle/vim-pandoc"]
+	path = vim/bundle/vim-pandoc
+	url = git@github.com:vim-pandoc/vim-pandoc
+[submodule "vim/bundle/vim-pandoc-syntax"]
+	path = vim/bundle/vim-pandoc-syntax
+	url = git@github.com:vim-pandoc/vim-pandoc-syntax
+[submodule "vim/bundle/NrrwRgn"]
+	path = vim/bundle/NrrwRgn
+	url = git@github.com:chrisbra/NrrwRgn
+[submodule "vim/bundle/vim-addon-mw-utils"]
+	path = vim/bundle/vim-addon-mw-utils
+	url = git@github.com:MarcWeber/vim-addon-mw-utils
+[submodule "vim/bundle/tlib_vim"]
+	path = vim/bundle/tlib_vim
+	url = git@github.com:tomtom/tlib_vim
+[submodule "vim/bundle/vim-snipmate"]
+	path = vim/bundle/vim-snipmate
+	url = git@github.com:garbas/vim-snipmate
+[submodule "vim/bundle/vim-snippets"]
+	path = vim/bundle/vim-snippets
+	url = git@github.com:honza/vim-snippets

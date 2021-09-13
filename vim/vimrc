@@ -25,6 +25,9 @@ Plugin 'ap/vim-css-color'
 " TODO: do I still use Vimux?
 Plugin 'benmills/vimux'
 
+" Editor config
+Plugin 'editorconfig/editorconfig-vim'
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
