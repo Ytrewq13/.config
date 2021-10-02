@@ -5,9 +5,7 @@
 
 # shellcheck source=/home/sam/.dotfiles/xdgdirs
 
-# TODO: move dotfiles directory out of home dir (put it in ~/.config ?)
-export DOTFILES="$HOME/.dotfiles"
-[ -f "$DOTFILES/xdgdirs" ] && . "$DOTFILES/xdgdirs"
+#[ -f "$DOTFILES/xdgdirs" ] && . "$DOTFILES/xdgdirs"
 
 # If not running interactively, don't do anything
 case $- in
@@ -210,8 +208,6 @@ n ()
 #################
 ## NNN Bookmarks:
 #################
-# u: Uni group project git repo top level
-export NNN_BMS="u:~/Documents/uni_stuff/2/CPP"
 # w: wallpapers
 export NNN_BMS="w:~/Pictures/desktop-backgrounds;$NNN_BMS"
 # D: downloads
