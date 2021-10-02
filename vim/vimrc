@@ -240,6 +240,9 @@ let g:ale_linters = {
 "let g:ale_asm_gcc_executable = 'aarch64-none-elf-gcc'
 "let g:ale_c_cc_executable = 'aarch64-none-elf-gcc'
 
+" FIXME: Comment this out when writing any production code
+let g:ale_c_clangtidy_checks = ['-clang-analyzer-security.insecureAPI.*']
+
 autocmd BufEnter *.asm silent! setlocal ft=nasm
 autocmd BufNewFile,BufRead *.s,*.S silent! setlocal filetype=arm " arm = armv6/7
 
