@@ -79,6 +79,7 @@ imap <F5> <Plug>snipMateShow
 
 
 let g:rooter_silent_chdir = 1
+let g:rooter_patterns = ['.git', 'src/']
 
 
 filetype plugin indent on
