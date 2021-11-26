@@ -23,7 +23,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ap/vim-css-color'
 " TODO: do I still use Vimux?
-Plugin 'benmills/vimux'
+"Plugin 'benmills/vimux'
 
 " Editor config
 Plugin 'editorconfig/editorconfig-vim'
@@ -31,12 +31,13 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+" TODO: use this more - set makeprg for filetypes without plugins
 Plugin 'tpope/vim-dispatch'
 
 Plugin 'dense-analysis/ale'
-Plugin 'wesQ3/vim-windowswap'
+Plugin 'wesQ3/vim-windowswap'  " <leader>ww to mark/swap windows
 Plugin 'StanAngeloff/php.vim'
-Plugin 'csexton/trailertrash.vim'
+Plugin 'csexton/trailertrash.vim'  " TODO: set a keybind for :TrailerTrim
 
 Plugin 'ARM9/arm-syntax-vim'
 
@@ -79,7 +80,7 @@ imap <F5> <Plug>snipMateShow
 
 
 let g:rooter_silent_chdir = 1
-let g:rooter_patterns = ['.git', 'src/']
+let g:rooter_patterns = ['.git', 'src/', 'build/']
 
 
 filetype plugin indent on
