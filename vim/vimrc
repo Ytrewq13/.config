@@ -62,7 +62,7 @@ Plugin 'honza/vim-snippets'
 call vundle#end()
 
 
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+"let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " Fuzzy search the current file with <C-/> (vim registers this as <C-_>)
 nnoremap <C-_> :BLines<CR>
@@ -161,8 +161,13 @@ call pathogen#helptags()
 
 " Recursively search for files by their name
 nnoremap <C-f> :Files<CR>
-" Silver searcher - grep through files in the current directory
-nnoremap <C-g> :Ag<CR>
+" RipGrep - grep through files in the current directory
+nnoremap <C-g> :Rg<CR>
+" Search through tags for the project
+" FIXME: find an unused keybind that makes sense for searching tags (e.g.
+" Variables, KeyWords, Tokens, etc.) - or maybe just assign it to
+" <leader>t/s/g/...
+"nnoremap <C-S-g> :Tags<CR>
 
 " Toggle spellcheck
 nnoremap <silent> <Leader>s :setlocal spell!<CR>
