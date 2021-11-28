@@ -244,10 +244,30 @@ let g:ale_linters = {
 "let g:ale_c_cc_executable = 'aarch64-none-elf-gcc'
 
 " FIXME: Comment this out when writing any production code
+" Remove warnings about possible buffer overruns (e.g. puts, scanf, sprintf,
+" etc.)
 let g:ale_c_clangtidy_checks = ['-clang-analyzer-security.insecureAPI.*']
 
 autocmd BufEnter *.asm silent! setlocal ft=nasm
 autocmd BufNewFile,BufRead *.s,*.S silent! setlocal filetype=arm " arm = armv6/7
+
+
+" Grep for a string in the project, put the results into the quickfix list
+set grepprg=ag\ --vimgrep
+function! Grep(...)
+    return system(join([&grepprg] + [expandcmd(join(a:000, ' '))], ' '))
+endfunction
+command! -nargs=+ -complete=file_in_path -bar Grep  cgetexpr Grep(<f-args>)
+command! -nargs=+ -complete=file_in_path -bar LGrep lgetexpr Grep(<f-args>)
+" Abbreviations for :grep and :lgrep
+cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() ==# 'grep')  ? 'Grep'  : 'grep'
+cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() ==# 'lgrep') ? 'LGrep' : 'lgrep'
+" Redraw the quickfix list whenever it is updated
+augroup quickfix
+    autocmd!
+    autocmd QuickFixCmdPost cgetexpr cwindow
+    autocmd QuickFixCmdPost lgetexpr lwindow
+augroup END
 
 
 " For basic statistical analysis of a small group of numbers
