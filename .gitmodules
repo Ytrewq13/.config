@@ -75,3 +75,15 @@
 [submodule "vim/bundle/vim-snippets"]
 	path = vim/bundle/vim-snippets
 	url = git@github.com:honza/vim-snippets
+[submodule "vim/dein/repos/github.com/Shougo/dein.vim"]
+	path = vim/dein/repos/github.com/Shougo/dein.vim
+	url = git@github.com:Shougo/dein.vim.git
+[submodule "vim/dein/repos/github.com/neoclide/coc.nvim_release"]
+	path = vim/dein/repos/github.com/neoclide/coc.nvim_release
+	url = git@github.com:neoclide/coc.nvim.git
+[submodule "vim/dein/repos/github.com/roxma/nvim-yarp"]
+	path = vim/dein/repos/github.com/roxma/nvim-yarp
+	url = git@github.com:roxma/nvim-yarp.git
+[submodule "vim/dein/repos/github.com/roxma/vim-hug-neovim-rpc"]
+	path = vim/dein/repos/github.com/roxma/vim-hug-neovim-rpc
+	url = git@github.com:roxma/vim-hug-neovim-rpc.git

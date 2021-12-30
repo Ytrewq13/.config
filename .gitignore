@@ -24,4 +24,5 @@ mutt/.muttrc*
 !terminator
 vim/.netrwhist
 !vim
+vim/dein/.cache
 !vim_templates
