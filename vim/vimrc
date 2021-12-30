@@ -18,50 +18,26 @@ augroup END
 " correctly)
 set rtp+=$XDG_CONFIG_HOME/vim
 set rtp+=$HOME/.vim/bundle/Vundle.vim
-set rtp+=$HOME/.config/vim/dein/repos/github.com/Shougo/dein.vim
-
-" Dein, the next generation of vim plugin manager
-" FIXME: switch plugins to being managed by Dein.
-call dein#begin('~/.config/vim/dein')
-
-" Let dein manage dein, required
-call dein#add('Shougo/dein.vim')
-if !has('nvim')
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
-endif
-
-" CoC.nvim: The Conqueror of Completion
-call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
-
-call dein#end()
-
 call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ap/vim-css-color'
-
-" Vimux: a plugin that allows vim to run commands in Tmux splits
+" TODO: do I still use Vimux?
 "Plugin 'benmills/vimux'
 
 " Editor config
 Plugin 'editorconfig/editorconfig-vim'
 
-" TPope plugins
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 " TODO: use this more - set makeprg for filetypes without plugins
 Plugin 'tpope/vim-dispatch'
 
-Plugin 'dense-analysis/ale'  " TODO: switch to CoC?
+Plugin 'dense-analysis/ale'
 Plugin 'wesQ3/vim-windowswap'  " <leader>ww to mark/swap windows
 Plugin 'StanAngeloff/php.vim'
 Plugin 'csexton/trailertrash.vim'  " TODO: set a keybind for :TrailerTrim
-
-" Autocompletion / linting
-"Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-" FIXME: CoC.nvim doesn't work (some issue with prereqs?)
 
 Plugin 'ARM9/arm-syntax-vim'
 
@@ -117,10 +93,6 @@ set path+=**
 set wildmenu
 set wildignore+=**/.git/**
 set wildignorecase
-
-set hidden
-
-set updatetime=300
 
 let g:netrw_banner=0
 let g:netrw_browse_split=4
@@ -209,7 +181,7 @@ autocmd BufRead,BufNewFile *.h  setlocal filetype=c
 
 " Formatting options for C source code
 autocmd FileType c setlocal formatoptions=croqnlj
-"autocmd FileType c setlocal formatprg='clang-format --style=file'
+autocmd FileType c let &formatprg='clang-format --style=file'
 
 
 autocmd FileType arduino setlocal smartindent
@@ -261,43 +233,8 @@ let g:vimtex_compiler_latexmk = {
 let g:vimtex_view_method = 'zathura'
 
 
-" CoC: Conqueror of Completion
-""""""""""""""""""""""""""""""
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" TODO: setup more CoC details/settings
-
-" SNIPPETS
-""""""""""
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-" Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
-
-" Use <CR> to accept and expand a snippet suggestion
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
-                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-
 " ALE: Asynchronous Linting Engine
 """"""""""""""""""""""""""""""""""
-let g:ale_enabled = 0
 let g:ale_c_parse_makefile = 1
 let g:ale_pattern_options = {
 \   '.*\.tex$': {'ale_enabled': 0},
@@ -350,9 +287,6 @@ nnoremap <Down> <nop>
 
 " Ron
 colorscheme ron
-nnoremap <F12> :colorscheme ron<CR>
-highlight CocFloating ctermbg=darkgrey ctermfg=lightgrey
-highlight CocErrorSign ctermfg=red
 
 " Automatically change the local working directory when editing a new file
 autocmd BufEnter * silent! lcd %:p:h
