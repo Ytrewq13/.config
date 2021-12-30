@@ -87,3 +87,6 @@
 [submodule "vim/dein/repos/github.com/roxma/vim-hug-neovim-rpc"]
 	path = vim/dein/repos/github.com/roxma/vim-hug-neovim-rpc
 	url = git@github.com:roxma/vim-hug-neovim-rpc.git
+[submodule "vim"]
+	path = vim
+	url = git@github.com:Ytrewq13/vim.git
