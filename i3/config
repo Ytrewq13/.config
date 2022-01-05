@@ -262,6 +262,9 @@ bindsym $mod+Shift+p exec random-man.sh
 # Mod, Ctrl, l = suspend PC
 bindsym $mod+Ctrl+l exec systemctl suspend
 
+# Mod, PageUp = Increment the counter for today
+bindsym $mod+Prior exec increment-today-count
+
 bindsym Print exec "dmenu_run; sleep 0.2s; xdotool type myscreenshot; xdotool key KP_Enter"
 bindsym Control+Print exec gnome-screenshot -i
 
