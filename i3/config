@@ -265,6 +265,9 @@ bindsym $mod+Ctrl+l exec systemctl suspend
 # Mod, PageUp = Increment the counter for today
 bindsym $mod+Prior exec increment-today-count
 
+# Mod, PauseBreak = Delete everything from ~/Downloads
+bindsym $mod+Pause exec "find ~/Downloads -maxdepth 1 -amin -1 -type f -delete"
+
 bindsym Print exec "dmenu_run; sleep 0.2s; xdotool type myscreenshot; xdotool key KP_Enter"
 bindsym Control+Print exec gnome-screenshot -i
 
