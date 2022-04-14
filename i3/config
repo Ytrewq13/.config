@@ -196,7 +196,7 @@ set $lightgrey #555555
 bar {
     font pango:DejaVu Sans Mono 15
     position top
-    #i3bar_command i3bar -t # Bar transparency
+#    i3bar_command i3bar -t # Bar transparency
     i3bar_command i3bar
     status_command py3status
     tray_output DP-1
@@ -266,7 +266,7 @@ bindsym $mod+Ctrl+l exec systemctl suspend
 bindsym $mod+Prior exec increment-today-count
 
 # Mod, PauseBreak = Delete everything from ~/Downloads
-bindsym $mod+Pause exec "find ~/Downloads -maxdepth 1 -amin -1 -type f -delete"
+bindsym $mod+Pause exec "find ~/Downloads -maxdepth 1 -amin -1 -type f -delete; notify-send --urgency=normal --expire-time=500 'Deleted recent downloads'"
 
 bindsym Print exec "dmenu_run; sleep 0.2s; xdotool type myscreenshot; xdotool key KP_Enter"
 bindsym Control+Print exec gnome-screenshot -i

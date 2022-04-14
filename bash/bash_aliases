@@ -124,7 +124,13 @@ alias j='jobs -l'
 alias w='curl v2.wttr.in'
 
 # Use this to spawn programs that are not children of the terminal
-alias s='setsid -f'
+alias s='setsid -f '
+# Use this to swallow a terminal using a spawned blocking process
+alias sw='swallow '
+alias swx='swallow xdg-open '
+
+# Open files using xdg-mimetypes
+alias x='xdg-open '
 
 export GCALPATH="$XDG_CONFIG_HOME"/gcal
 
