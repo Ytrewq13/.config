@@ -214,10 +214,10 @@ for_window [class="^.*"] border pixel 0
 gaps inner 10
 gaps outer 5
 
-for_window [title="FCalc"] floating enable
 for_window [title="FTerm"] floating enable
 
-# TODO: Organise this better
+# Keybinds
+##########
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -227,7 +227,7 @@ bindsym $mod+Ctrl+Return exec terminator --title "FTerm" # Floating terminal
 bindsym $mod+Shift+x exec google-chrome-stable
 #bindsym $mod+Shift+x exec firefox
 
-bindsym $mod+Shift+a exec --no-startup-id "sxiv $XDG_DATA_HOME/phonetic.png"
+bindsym $mod+Shift+a exec --no-startup-id "nsxiv $XDG_DATA_HOME/phonetic.png"
 bindsym $mod+Shift+s exec --no-startup-id steam
 bindsym $mod+Shift+d exec --no-startup-id discord
 
@@ -235,35 +235,36 @@ bindsym $mod+Shift+d exec --no-startup-id discord
 bindsym $mod+Ctrl+s exec --no-startup-id startscreenkey --scr 0 # Left monitor
 bindsym $mod+Ctrl+Shift+s exec --no-startup-id startscreenkey --scr 1 # Right monitor
 
+# Virtual machines
 bindsym $mod+Shift+v exec --no-startup-id virt-manager
+
+# COVID visualisation
 bindsym $mod+Ctrl+v exec visualise-covid
 
 bindsym $mod+Left exec workspace-adjust -1
 bindsym $mod+Right exec workspace-adjust 1
 bindsym $mod+Shift+Left exec workspace-adjust-container -1
 bindsym $mod+Shift+Right exec workspace-adjust-container 1
+
+# Randomise the desktop background
 bindsym $mod+Shift+w exec randomize-background
+
+# Toggle the border of the current window
 bindsym $mod+Shift+b border toggle
 
-bindsym $mod+Ctrl+w exec terminator -e 'cat /usr/share/dict/words | fzf' --title "FTerm"
-
-bindsym $mod+Shift+m exec terminator -e 'bc -lq'
-bindsym $mod+Ctrl+m exec terminator -e 'bc -lq' --title "FCalc"
+# Floating calculator
+bindsym $mod+m exec terminator -e 'bc -lq' --title "FTerm"
 
 # Check network connection
 bindsym $mod+Ctrl+n exec terminator -e 'ping -c 10 -i.2 8.8.8.8 && read -n 1 -p "Press key to return..." mainmenuinput' --title "FTerm"
 
-# Mod, Shift, y = copy protonvpn openvpn password into system clipboard
-bindsym $mod+Shift+y exec xclip ~/.cache/protonvpn-openvpn-password
-
-# Mod, Shift, p = open random manpage in pdf form
+# Open random manpage in pdf form
 bindsym $mod+Shift+p exec random-man.sh
 
 # Mod, Ctrl, l = suspend PC
 bindsym $mod+Ctrl+l exec systemctl suspend
 
 # Mod, PageUp = Increment the counter for today
-#bindsym $mod+Prior exec increment-today-count
 bindsym $mod+Prior exec "date --iso-8601=seconds >> ~/Documents/daily-count.csv; notify-send --urgency=normal --expire-time=500 $(date --iso-8601=seconds)"
 
 # Mod, PauseBreak = Delete everything from ~/Downloads
@@ -275,6 +276,14 @@ bindsym Control+Print exec gnome-screenshot -i
 # Move workspaces between monitors
 bindsym $mod+Ctrl+Left move workspace to output left
 bindsym $mod+Ctrl+Right move workspace to output right
+bindsym $mod+Ctrl+Up move workspace to output up
+bindsym $mod+Ctrl+Down move workspace to output down
+
+# Move windows to/from the scratchpad
+bindsym $mod+Home move scratchpad
+bindsym $mod+End [con_mark="^[^s][^a][^v][^e][^d]"] scratchpad show
+bindsym $mod+Shift+Home mark --toggle "saved"; move scratchpad
+bindsym $mod+Shift+End [con_mark="saved"] scratchpad show; mark --toggle "saved"
 
 exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
