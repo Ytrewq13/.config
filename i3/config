@@ -281,7 +281,8 @@ bindsym $mod+Ctrl+Down move workspace to output down
 
 # Move windows to/from the scratchpad
 bindsym $mod+Home move scratchpad
-bindsym $mod+End [con_mark="^[^s][^a][^v][^e][^d]"] scratchpad show
+# FIXME: Don't show windows marked "saved"
+bindsym $mod+End scratchpad show
 bindsym $mod+Shift+Home mark --toggle "saved"; move scratchpad
 bindsym $mod+Shift+End [con_mark="saved"] scratchpad show; mark --toggle "saved"
 
