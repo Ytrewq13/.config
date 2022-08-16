@@ -52,6 +52,11 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
+bindsym $mod+Ctrl+Shift+h move left 1 px
+bindsym $mod+Ctrl+Shift+j move down 1 px
+bindsym $mod+Ctrl+Shift+k move up 1 px
+bindsym $mod+Ctrl+Shift+l move right px
+
 # split in horizontal orientation
 bindsym $mod+c split h
 
@@ -255,6 +260,9 @@ bindsym $mod+Shift+b border toggle
 # Floating calculator
 bindsym $mod+m exec terminator -e 'bc -lq' --title "FTerm"
 
+# Floating units converter
+bindsym $mod+u exec terminator -e 'units' --title "FTerm"
+
 # Check network connection
 bindsym $mod+Ctrl+n exec terminator -e 'ping -c 10 -i.2 8.8.8.8 && read -n 1 -p "Press key to return..." mainmenuinput' --title "FTerm"
 
@@ -286,9 +294,13 @@ bindsym $mod+End scratchpad show
 bindsym $mod+Shift+Home mark --toggle "saved"; move scratchpad
 bindsym $mod+Shift+End [con_mark="saved"] scratchpad show; mark --toggle "saved"
 
+bindsym $mod+Ctrl+space exec rofi -modi emoji -show emoji
+
 exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id setxkbmap -layout gb
 exec --no-startup-id fcitx &
-exec --no-startup-id background-daemon
 exec --no-startup-id dunst &
+exec --no-startup-id ckb-next --background &
+exec --no-startup-id background-daemon
+exec --no-startup-id redshift &

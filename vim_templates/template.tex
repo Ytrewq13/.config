@@ -2,23 +2,30 @@
 
 \usepackage[margin=1in]{geometry}
 \usepackage{titlesec}
-\usepackage{datetime}
+\usepackage[british]{datetime2}
 
 \usepackage{graphicx}
 
 \usepackage{amssymb}
 \usepackage{amsmath}
 
+%\usepackage{xeCJK}
+%\setCJKmainfont{Noto Serif CJK SC}
+%\setCJKsansfont{Noto Serif CJK SC}
+%\setCJKmonofont{Noto Serif CJK SC}
+
 %\usepackage{csquotes}
 %\usepackage[english]{babel}
 %\usepackage[backend=biber]{biblatex}
 %\addbibresource{~/Documents/books/books.bib}
 
-\newdateformat{mydate}{\dayofweekname{\THEDAY}{\THEMONTH}{\THEYEAR}, \ordinal{DAY} \monthname[\THEMONTH], \THEYEAR}
+%\newdateformat{mydate}{\dayofweekname{\THEDAY}{\THEMONTH}{\THEYEAR}, \ordinal{DAY} \monthname[\THEMONTH], \THEYEAR}
+\DTMsetup{showdow}
+\DTMlangsetup[en-GB]{ord=raise, dowdaysep={,\space{}}, monthyearsep={,\space{}}}
 
 \title{<FILEROOT>}
 \author{Sam Whitehead}
-\date{\mydate\today}
+\date{\today}
 
 \begin{document}
 \maketitle
