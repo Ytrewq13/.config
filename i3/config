@@ -294,7 +294,7 @@ bindsym $mod+End scratchpad show
 bindsym $mod+Shift+Home mark --toggle "saved"; move scratchpad
 bindsym $mod+Shift+End [con_mark="saved"] scratchpad show; mark --toggle "saved"
 
-bindsym $mod+Ctrl+space exec rofi -modi emoji -show emoji
+bindsym $mod+Ctrl+space exec rofimoji
 
 exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
