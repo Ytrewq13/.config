@@ -296,7 +296,7 @@ bindsym $mod+Shift+End [con_mark="saved"] scratchpad show; mark --toggle "saved"
 
 bindsym $mod+Ctrl+space exec rofimoji
 
-exec --no-startup-id picom -b
+exec --no-startup-id picom -b --no-fading-openclose
 exec --no-startup-id nm-applet
 exec --no-startup-id setxkbmap -layout gb
 exec --no-startup-id fcitx &
