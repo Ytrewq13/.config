@@ -204,7 +204,7 @@ bar {
 #    i3bar_command i3bar -t # Bar transparency
     i3bar_command i3bar
     status_command py3status
-    tray_output DP-1
+    tray_output primary
     colors {
         statusline $textcolor
         background $bgcolor
@@ -229,8 +229,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Ctrl+Return exec terminator --title "FTerm" # Floating terminal
 
 #bindsym $mod+Shift+x exec chromium
-bindsym $mod+Shift+x exec google-chrome-stable
-#bindsym $mod+Shift+x exec firefox
+#bindsym $mod+Shift+x exec google-chrome-stable
+bindsym $mod+Shift+x exec firefox
 
 bindsym $mod+Shift+a exec --no-startup-id "nsxiv $XDG_DATA_HOME/phonetic.png"
 bindsym $mod+Shift+s exec --no-startup-id steam
@@ -242,9 +242,6 @@ bindsym $mod+Ctrl+Shift+s exec --no-startup-id startscreenkey --scr 1 # Right mo
 
 # Virtual machines
 bindsym $mod+Shift+v exec --no-startup-id virt-manager
-
-# COVID visualisation
-bindsym $mod+Ctrl+v exec visualise-covid
 
 bindsym $mod+Left exec workspace-adjust -1
 bindsym $mod+Right exec workspace-adjust 1

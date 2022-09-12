@@ -53,33 +53,28 @@ group inet {
 }
 
 group cpu {
-    min_length = 4
+    button_next = 1
+    min_length = 10
         cpu_temperature 0 {
-            format = "%degrees°C"
-#            path = "/sys/class/hwmon/hwmon4/temp1_input"  # laptop
-            path = "/sys/class/hwmon/hwmon2/temp2_input"  # PC
-#            path = shell(~/.config/i3status/environment-vars 1)
-            # LABEL SHOULD BE 'CPUTIN'
+            format = "CPU: %degrees°C"
+            path = "/sys/class/hwmon/hwmon5/temp1_input"  # Framework laptop
+            # LABEL SHOULD BE 'Package id 0'
             # cat /sys/class/hwmon/hwmon?/temp?_label
         }
         cpu_temperature 1 {
-            format = "%degrees°C"
-#            path = "/sys/class/hwmon/hwmon4/temp2_input"  # laptop
-            path = "/sys/class/hwmon/hwmon2/temp1_input"  # PC
-#            path = shell(~/.config/i3status/environment-vars 2)
-            # LABEL SHOULD BE 'CPUTIN'
-            # cat /sys/class/hwmon/hwmon?/temp?_label
+            format = "WIFI: %degrees°C"
+            path = "/sys/class/hwmon/hwmon4/temp1_input"  # Framework laptop
+            # NAME SHOULD BE 'iwlwifi_1'
+            # cat /sys/class/hwmon/hwmon?/name
         }
         cpu_temperature 2 {
-            format = "%degrees°C"
-#            path = "/sys/class/hwmon/hwmon4/temp3_input"  # laptop
-            path = "/sys/class/hwmon/hwmon0/temp2_input"  # PC
-#            path = shell(~/.config/i3status/environment-vars 3)
-            # LABEL SHOULD BE 'CPUTIN'
-            # cat /sys/class/hwmon/hwmon?/temp?_label
+            format = "SSD: %degrees°C"
+            path = "/sys/class/hwmon/hwmon3/temp1_input"  # Framework laptop
+            # NAME SHOULD BE 'nvme'
+            # cat /sys/class/hwmon/hwmon?/name
         }
     cpu_usage {
-        format = "%usage"
+        format = "CPU: %usage"
     }
 }
 
@@ -97,7 +92,7 @@ group gpu {
 }
 
 group power {
-    battery 0 {
+    battery 1 {
         format = "%status %percentage %remaining"
         format_down = ""
         status_chr = "⚡"
