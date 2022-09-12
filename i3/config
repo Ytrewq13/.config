@@ -258,7 +258,7 @@ bindsym $mod+Shift+b border toggle
 bindsym $mod+m exec terminator -e 'bc -lq' --title "FTerm"
 
 # Floating units converter
-bindsym $mod+u exec terminator -e 'units' --title "FTerm"
+bindsym $mod+u exec terminator -e 'units --history ~/.cache/units_history' --title "FTerm"
 
 # Check network connection
 bindsym $mod+Ctrl+n exec terminator -e 'ping -c 10 -i.2 8.8.8.8 && read -n 1 -p "Press key to return..." mainmenuinput' --title "FTerm"

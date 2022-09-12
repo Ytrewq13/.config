@@ -161,7 +161,7 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 # Haskell's stack data
 export STACK_ROOT="$XDG_DATA_HOME"/stack
 
-# Subversion (not even installed, why does it's dir exist?)
+# Subversion (not even installed, why does its dir exist?)
 alias svn='svn --config-dir "$XDG_CONFIG_HOME"/subversion'
 
 # Ruby Gems data
@@ -171,6 +171,12 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 # Mutt email client
 alias neomutt='neomutt -F "$XDG_CONFIG_HOME"/mutt/.muttrc'
 alias mutt='neomutt'
+
+# Readline
+export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+
+# Units
+alias units="units --history $XDG_CACHE_HOME/units_history"
 
 #####################################################################
 ########################## nnn file browser #########################
