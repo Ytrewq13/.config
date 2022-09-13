@@ -293,6 +293,7 @@ bindsym $mod+Shift+End [con_mark="saved"] scratchpad show; mark --toggle "saved"
 
 bindsym $mod+Ctrl+space exec rofimoji
 
+exec --no-startup-id xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Click Method Enabled" 0 1
 exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id setxkbmap -layout gb
