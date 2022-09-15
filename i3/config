@@ -293,6 +293,11 @@ bindsym $mod+Shift+End [con_mark="saved"] scratchpad show; mark --toggle "saved"
 
 bindsym $mod+Ctrl+space exec rofimoji
 
+# Media controls
+bindsym XF86AudioMute exec "pamixer --toggle-mute && pamixer --get-volume-human | xargs -I{} notify-send --urgency=normal --expire-time=500 'volume {}'"
+bindsym XF86AudioLowerVolume exec "pamixer -d 5 && pamixer --get-volume-human | xargs -I{} notify-send --urgency=normal --expire-time=500 'volume {}'"
+bindsym XF86AudioRaiseVolume exec "pamixer -i 5 && pamixer --get-volume-human | xargs -I{} notify-send --urgency=normal --expire-time=500 'volume {}'"
+
 exec --no-startup-id xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Click Method Enabled" 0 1
 exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
