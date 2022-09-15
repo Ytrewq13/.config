@@ -16,7 +16,6 @@
 !git
 !i3
 !i3status
-i3status/environment-vars
 !mpv
 !mutt
 mutt/.muttrc*
@@ -26,3 +25,4 @@ vim/.netrwhist
 !vim
 vim/dein/.cache
 !vim_templates
+!flameshot
