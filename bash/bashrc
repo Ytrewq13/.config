@@ -179,53 +179,6 @@ export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 alias units="units --history $XDG_CACHE_HOME/units_history"
 
 #####################################################################
-########################## nnn file browser #########################
-#####################################################################
-
-n ()
-{
-    # Block nesting of nnn in subshells
-    if [ -n "$NNNLVL" ] && [ "${NNNLVL:-0}" -ge 1 ]; then
-        echo "nnn is already running"
-        return
-    fi
-
-    # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
-    # To cd on quit only on ^G, remove the "export" as in:
-    #     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-    # NOTE: NNN_TMPFILE is fixed, should not be modified
-    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-
-    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
-    # stty start undef
-    # stty stop undef
-    # stty lwrap undef
-    # stty lnext undef
-
-    nnn -e -E "$@"
-
-    if [ -f "$NNN_TMPFILE" ]; then
-            # shellcheck source=/dev/null
-            . "$NNN_TMPFILE"
-            rm -f "$NNN_TMPFILE" > /dev/null
-    fi
-}
-
-#################
-## NNN Bookmarks:
-#################
-# w: wallpapers
-export NNN_BMS="w:~/Pictures/desktop-backgrounds;$NNN_BMS"
-# D: downloads
-export NNN_BMS="D:~/Downloads;$NNN_BMS"
-# d: documents
-export NNN_BMS="d:~/Documents;$NNN_BMS"
-# c: config (dotfiles)
-export NNN_BMS="c:$DOTFILES;$NNN_BMS"
-# h: home
-export NNN_BMS="h:~;$NNN_BMS"
-
-#####################################################################
 ########################### Misc  stuff #############################
 #####################################################################
 
@@ -243,7 +196,6 @@ export BIBINPUTS="$BIBINPUTS:${HOME}/bib/"
 
 export PATH="$HOME/.scripts:$HOME/.local/bin:/mybin:$PATH"
 
-#neofetch
 # shellcheck source=/dev/null
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
