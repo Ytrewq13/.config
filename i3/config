@@ -236,20 +236,14 @@ bindsym $mod+Shift+a exec --no-startup-id "nsxiv $XDG_DATA_HOME/phonetic.png"
 bindsym $mod+Shift+s exec --no-startup-id steam
 bindsym $mod+Shift+d exec --no-startup-id discord
 
-# Screenkey
-bindsym $mod+Ctrl+s exec --no-startup-id startscreenkey --scr 0 # Left monitor
-bindsym $mod+Ctrl+Shift+s exec --no-startup-id startscreenkey --scr 1 # Right monitor
-
-# Virtual machines
-bindsym $mod+Shift+v exec --no-startup-id virt-manager
-
+# Workspace adjust - increment or decrement the workspace number
 bindsym $mod+Left exec workspace-adjust -1
 bindsym $mod+Right exec workspace-adjust 1
 bindsym $mod+Shift+Left exec workspace-adjust-container -1
 bindsym $mod+Shift+Right exec workspace-adjust-container 1
 
 # Randomise the desktop background
-bindsym $mod+Shift+w exec 'desktop-bg-rand.sh | set-background'
+bindsym $mod+Shift+w exec sh -c 'desktop-bg-rand.sh | set-background'
 
 # Toggle the border of the current window
 bindsym $mod+Shift+b border toggle
@@ -262,9 +256,6 @@ bindsym $mod+u exec terminator -e 'units --history ~/.cache/units_history' --tit
 
 # Check network connection
 bindsym $mod+Ctrl+n exec terminator -e 'ping -c 10 -i.2 8.8.8.8 && read -n 1 -p "Press key to return..." mainmenuinput' --title "FTerm"
-
-# Open random manpage in pdf form
-bindsym $mod+Shift+p exec random-man.sh
 
 # Mod, Ctrl, l = suspend PC
 bindsym $mod+Ctrl+l exec systemctl suspend
