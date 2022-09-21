@@ -249,7 +249,7 @@ bindsym $mod+Shift+Left exec workspace-adjust-container -1
 bindsym $mod+Shift+Right exec workspace-adjust-container 1
 
 # Randomise the desktop background
-bindsym $mod+Shift+w exec randomize-background
+bindsym $mod+Shift+w exec 'desktop-bg-rand.sh | set-background'
 
 # Toggle the border of the current window
 bindsym $mod+Shift+b border toggle
@@ -275,7 +275,8 @@ bindsym $mod+Prior exec "date --iso-8601=seconds >> ~/Documents/daily-count.csv;
 # Mod, PauseBreak = Delete everything from ~/Downloads
 bindsym $mod+Pause exec "find ~/Downloads -maxdepth 1 -amin -1 -type f -delete; notify-send --urgency=normal --expire-time=500 'Deleted recent downloads'"
 
-bindsym Print exec "dmenu_run; sleep 0.2s; xdotool type myscreenshot; xdotool key KP_Enter"
+bindsym Print exec flameshot gui
+bindsym Ctrl+Print exec flameshot full
 
 # Move workspaces between monitors
 bindsym $mod+Ctrl+Left move workspace to output left
@@ -301,7 +302,22 @@ exec --no-startup-id xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput 
 exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id setxkbmap -layout gb
+
+# Fcitx is a multi-language x-input method (xim)
 exec --no-startup-id fcitx &
-exec --no-startup-id clight &
+
+# Automatically run i3-lock when the system resumes from suspend
 exec --no-startup-id xss-lock i3lock-fancy-rapid 8 16 &
-exec --no-startup-id flameshot &
+
+# Dunst is a desktop notifications daemon
+# (should be enabled as a systemd --user service now)
+#exec --no-startup-id dunst &
+
+# Ckb-next implements support for Corsair RGB keyboards and mice
+exec --no-startup-id ckb-next --background &
+
+# Clight dynamically adjusts display brightness based on Ambient Light Sensor (ALS) readings
+exec --no-startup-id clight &
+
+# Flameshot is a lightweight screenshot system with editing features
+#exec --no-startup-id flameshot &
