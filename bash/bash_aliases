@@ -138,3 +138,6 @@ alias units='units -H ""'
 
 # Traceroute
 alias mtr='mtr --curses'
+
+# Rsync
+alias rsync='rsync -ah --partial --append --info=progress2 '
