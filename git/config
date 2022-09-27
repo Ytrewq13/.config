@@ -3,3 +3,5 @@
 [user]
 	email = sam.everythingcomputers@gmail.com
 	name = Sam Whitehead
+[pull]
+	rebase = false
