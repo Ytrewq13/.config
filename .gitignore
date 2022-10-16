@@ -26,3 +26,4 @@ vim/.netrwhist
 vim/dein/.cache
 !vim_templates
 !flameshot
+!readline
