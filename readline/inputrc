@@ -1,5 +1,5 @@
 # do not bell on tab-completion
-#set bell-style none
+set bell-style none
 
 set meta-flag on
 set input-meta on
@@ -38,4 +38,8 @@ $endif
 set completion-ignore-case On
 set completion-map-case On
 set print-completions-horizontally On
-set show-all-if-ambiguous On
+#set show-all-if-ambiguous On
+#set horizontal-scroll-mode On
+#set blink-matching-paren On
+set colored-stats On
+set match-hidden-files Off
