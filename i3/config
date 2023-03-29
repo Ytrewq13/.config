@@ -179,6 +179,11 @@ mode "resize" {
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
+        bindsym Left resize shrink width 1px or 1ppt
+        bindsym Down resize grow height 1px or 1ppt
+        bindsym Up resize shrink height 1px or 1ppt
+        bindsym Right resize grow width 1px or 1ppt
+
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -233,8 +238,8 @@ bindsym $mod+Ctrl+Return exec terminator --title "FTerm" # Floating terminal
 bindsym $mod+Shift+x exec firefox
 
 bindsym $mod+Shift+a exec --no-startup-id "nsxiv $XDG_DATA_HOME/phonetic.png"
-bindsym $mod+Shift+s exec --no-startup-id steam
-bindsym $mod+Shift+d exec --no-startup-id discord
+#bindsym $mod+Shift+s exec --no-startup-id steam
+#bindsym $mod+Shift+d exec --no-startup-id discord
 
 # Workspace adjust - increment or decrement the workspace number
 bindsym $mod+Left exec workspace-adjust -1
@@ -248,6 +253,9 @@ bindsym $mod+Shift+w exec sh -c 'desktop-bg-rand.sh | set-background'
 # Toggle the border of the current window
 bindsym $mod+Shift+b border toggle
 
+# Virtualisation
+bindsym $mod+Shift+v exec virt-manager
+
 # Floating calculator
 bindsym $mod+m exec terminator -e 'bc -lq' --title "FTerm"
 
@@ -259,6 +267,7 @@ bindsym $mod+Ctrl+n exec terminator -e 'ping -c 10 -i.2 8.8.8.8 && read -n 1 -p 
 
 # Mod, Ctrl, l = suspend PC
 bindsym $mod+Ctrl+l exec systemctl suspend
+# TODO: setup proper page file/partition for hibernation (see arch wiki page on dm-crypt hibernation)
 
 # Mod, PageUp = Increment the counter for today
 bindsym $mod+Prior exec "date --iso-8601=seconds >> ~/Documents/daily-count.csv; notify-send --urgency=normal --expire-time=500 $(date --iso-8601=seconds)"
@@ -266,10 +275,11 @@ bindsym $mod+Prior exec "date --iso-8601=seconds >> ~/Documents/daily-count.csv;
 # Mod, PauseBreak = Delete everything from ~/Downloads
 bindsym $mod+Pause exec "find ~/Downloads -maxdepth 1 -amin -1 -type f -delete; notify-send --urgency=normal --expire-time=500 'Deleted recent downloads'"
 
+# Screenshot keybinds
 bindsym Print exec flameshot gui
 bindsym Ctrl+Print exec flameshot full
 
-# Move workspaces between monitors
+# Move workspaces between monitors (is this needed on the laptop branch?)
 bindsym $mod+Ctrl+Left move workspace to output left
 bindsym $mod+Ctrl+Right move workspace to output right
 bindsym $mod+Ctrl+Up move workspace to output up
@@ -288,27 +298,56 @@ bindsym $mod+Ctrl+space exec rofimoji
 bindsym XF86AudioMute exec "pamixer --toggle-mute && pamixer --get-volume-human | xargs -I{} notify-send --urgency=normal --expire-time=500 'volume {}'"
 bindsym XF86AudioLowerVolume exec "pamixer -d 5 && pamixer --get-volume-human | xargs -I{} notify-send --urgency=normal --expire-time=500 'volume {}'"
 bindsym XF86AudioRaiseVolume exec "pamixer -i 5 && pamixer --get-volume-human | xargs -I{} notify-send --urgency=normal --expire-time=500 'volume {}'"
+# TODO: XF86AudioPrev (rewind key)
+# TODO: XF86AudioPlay (play/pause key)
+# TODO: XF86AudioNext (fast-forward key)
 
+# mod+Play/pause key runs a script
+bindsym $mod+XF86AudioPlay exec /home/sam/.scripts/local/feedback_automation/feedback_script.sh
+
+# Brightness controls
+bindsym $mod+Ctrl+F7 exec "DELTA=5; current=`xbacklight -get`; [ $current -lt $DELTA ] && DELTA=$(( current - 1 )); xbacklight -dec $DELTA"
+bindsym $mod+Ctrl+F8 exec "DELTA=5; xbacklight -inc $DELTA"
+
+# Type email address
+#bindsym --release $mod+Shift+at exec "xdotool type --clearmodifiers 'sam.everythingcomputers@gmail.com'; sleep 0.5; xdotool keyup Super_L keyup Shift_L"
+bindsym --release $mod+Shift+at exec "xdotool type --clearmodifiers 'SWhitehead1999@outlook.com'; sleep 0.5; xdotool keyup Super_L keyup Shift_L"
+
+# Enable two- and three-finger touch on the Framework Laptop touchpad
 exec --no-startup-id xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Click Method Enabled" 0 1
+# Enable tap-to-click on Framework Laptop Touchpad
+exec --no-startup-id xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Tapping Enabled" 1
+
+# Start the compositor in the background
 exec --no-startup-id picom -b
+
+# Start the NetworkManager tray application
 exec --no-startup-id nm-applet
+
+# Set the UK keyboard layout
 exec --no-startup-id setxkbmap -layout gb
 
 # Fcitx is a multi-language x-input method (xim)
 exec --no-startup-id fcitx &
 
 # Automatically run i3-lock when the system resumes from suspend
-exec --no-startup-id xss-lock i3lock-fancy-rapid 8 16 &
+exec --no-startup-id xss-lock -- i3lock -B 12 &
 
 # Dunst is a desktop notifications daemon
 # (should be enabled as a systemd --user service now)
 #exec --no-startup-id dunst &
 
 # Ckb-next implements support for Corsair RGB keyboards and mice
-exec --no-startup-id ckb-next --background &
+#exec --no-startup-id ckb-next --background &
 
 # Clight dynamically adjusts display brightness based on Ambient Light Sensor (ALS) readings
-exec --no-startup-id clight &
+#exec --no-startup-id clight &
+#exec --no-startup-id clight-gui --tray &
+# TODO: does clight-gui run clight by itself?
 
-# Flameshot is a lightweight screenshot system with editing features
+# Start the bluetooth applet, and keep bluetooth disabled on login
+exec --no-startup-id blueman-applet &
+exec --no-startup-id rfkill block bluetooth
+
+# Flameshot is a lightweight screenshot system with editing features (no longer always running)
 #exec --no-startup-id flameshot &

@@ -161,6 +161,9 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 # Haskell's stack data
 export STACK_ROOT="$XDG_DATA_HOME"/stack
 
+# HLedger
+export LEDGER_FILE="$XDG_DATA_HOME/ledger/ledger.journal"
+
 # Subversion (not even installed, why does its dir exist?)
 alias svn='svn --config-dir "$XDG_CONFIG_HOME"/subversion'
 

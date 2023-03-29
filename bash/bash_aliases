@@ -10,6 +10,9 @@ alias humbytes10='numfmt --to=si --format %.2fB'
 # Calculator - use math library by default
 alias bc='bc -l'
 
+# Calendar - Monday is the first day of the week
+alias cal='cal --monday'
+
 alias latexmk="latexmk -r $XDG_CONFIG_HOME/latexmkrc"
 
 # Search the available pkg-conf packages using fzf
@@ -46,6 +49,14 @@ alias lc='wc -l'
 llc() { [ -n "$1" ] && { ls -a "$1" | wc -l; } || { ls -a | wc -l; }; }
 
 
+# Copy the current working directory to the system clipboard
+cpwd() { printf "%q" "$PWD" | xclip && \
+    echo "Current working directory copied to clipboard."; }
+
+# Open the currect working directory in another terminal window
+opwd() { setsid -f terminator --working-directory="$PWD" >/dev/null 2>&1; }
+
+
 # Custom alerts
 # low urgency
 alias alertl='notify-send --urgency=low'
@@ -55,7 +66,7 @@ alias alertn='notify-send --urgency=normal'
 alias alertc='notify-send --urgency=critical'
 
 # Play video files
-alias v='mpv'
+alias v='mpv --save-position-on-quit=yes'
 alias vs='mpv --shuffle'
 
 # Play video files in terminal as ASCII
